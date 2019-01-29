@@ -10,7 +10,7 @@ public interface CategoryService {
 
     Category updateCategory(Category category);
 
-    void deleteCategory(String idCategory);
+    boolean deleteCategory(String idCategory);
 
     Category createCategory(Category category);
 

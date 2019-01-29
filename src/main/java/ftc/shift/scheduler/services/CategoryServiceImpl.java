@@ -30,9 +30,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteCategory(String idCategory) {
+    public boolean deleteCategory(String idCategory) {
 
         categoryRepository.deleteCategory(idCategory);
+
+        return true;
     }
 
     @Override

@@ -8,14 +8,13 @@ public class Budget implements Serializable {
 
     private String idBudget;
 
-    private Collection<Category> categories;
+    private Collection<PlannedCategory> categories;
 
     private Collection<Transaction> transactions;
 
     private Date date;
 
-
-    public Budget(String idBudget, Collection<Category> categories, Collection<Transaction> transactions, Date date) {
+    public Budget(String idBudget, Collection<PlannedCategory> categories, Collection<Transaction> transactions, Date date) {
         this.idBudget = idBudget;
         this.categories = categories;
         this.transactions = transactions;
@@ -33,11 +32,11 @@ public class Budget implements Serializable {
         this.idBudget = idBudget;
     }
 
-    public Collection<Category> getCategories() {
+    public Collection<PlannedCategory> getCategories() {
         return categories;
     }
 
-    public void setCategories(Collection<Category> categories) {
+    public void setCategories(Collection<PlannedCategory> categories) {
         this.categories = categories;
     }
 
