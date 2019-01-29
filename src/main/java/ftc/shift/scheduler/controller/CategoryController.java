@@ -42,10 +42,8 @@ public class CategoryController {
     @CrossOrigin
     @DeleteMapping(CATEGORY_PATH + "/{idCategory}")
     public @ResponseBody
-    BaseResponse createCategory(@PathVariable(name = "idCategory") String idCategory) {
+    BaseResponse deleteCategory(@PathVariable(name = "idCategory") String idCategory) {
 
         return new BaseResponse<>(categoryService.deleteCategory(idCategory));
     }
-
-
 }

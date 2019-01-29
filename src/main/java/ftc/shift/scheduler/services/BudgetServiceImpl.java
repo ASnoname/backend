@@ -30,9 +30,11 @@ public class BudgetServiceImpl implements BudgetService {
     }
 
     @Override
-    public void deleteBudget(String idBudget) {
+    public boolean deleteBudget(String idBudget) {
 
         budgetRepository.deleteBudget(idBudget);
+
+        return true;
     }
 
     @Override

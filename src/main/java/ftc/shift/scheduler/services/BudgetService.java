@@ -10,7 +10,7 @@ public interface BudgetService {
 
     Budget updateBudget(Budget budget);
 
-    void deleteBudget(String idBudget);
+    boolean deleteBudget(String idBudget);
 
     Budget createBudget(Budget budget);
 
