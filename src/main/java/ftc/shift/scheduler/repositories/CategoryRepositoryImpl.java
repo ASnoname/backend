@@ -4,6 +4,7 @@ import ftc.shift.scheduler.models.Category;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 @Repository
@@ -12,6 +13,8 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     private Map<String, Category> categories;
 
     public CategoryRepositoryImpl() {
+
+        categories = new HashMap<>();
     }
 
     @Override

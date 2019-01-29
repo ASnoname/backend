@@ -1,12 +1,12 @@
-package ftc.shift.scheduler.repositories;
+package ftc.shift.scheduler.services;
 
 import ftc.shift.scheduler.models.Budget;
 
 import java.util.Collection;
 
-public interface BudgetRepository {
+public interface BudgetService {
 
-    Budget fetchBudget(String idBudget);
+    Budget provideBudget(String idBudget);
 
     Budget updateBudget(Budget budget);
 
@@ -14,5 +14,5 @@ public interface BudgetRepository {
 
     Budget createBudget(Budget budget);
 
-    Collection<Budget> getAllBudgetes();
+    Collection<Budget> provideBudgetes();
 }

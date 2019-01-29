@@ -4,6 +4,7 @@ import ftc.shift.scheduler.models.Budget;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 @Repository
@@ -12,6 +13,8 @@ public class BudgetRepositoryImpl implements BudgetRepository{
     private Map<String, Budget> budgets;
 
     public BudgetRepositoryImpl() {
+
+        budgets = new HashMap<>();
     }
 
     @Override
@@ -23,21 +26,30 @@ public class BudgetRepositoryImpl implements BudgetRepository{
     @Override
     public Budget updateBudget(Budget budget) {
 
-        return ;
+        budgets.put(budget.getIdBudget(), budget);
+
+        return budget;
     }
 
     @Override
     public void deleteBudget(String idBudget) {
 
+        budgets.remove(idBudget);
     }
 
     @Override
     public Budget createBudget(Budget budget) {
-        return null;
+
+        budget.setIdBudget(String.valueOf(budget.hashCode()));
+
+        budgets.put(budget.getIdBudget(), budget);
+
+        return budget;
     }
 
     @Override
     public Collection<Budget> getAllBudgetes() {
-        return null;
+
+        return budgets.values();
     }
 }
