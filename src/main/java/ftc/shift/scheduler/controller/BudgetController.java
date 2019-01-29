@@ -1,6 +1,7 @@
 package ftc.shift.scheduler.controller;
 
 import ftc.shift.scheduler.models.Budget;
+import ftc.shift.scheduler.models.TempPlannedCategory;
 import ftc.shift.scheduler.services.BudgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +27,9 @@ public class BudgetController {
     @CrossOrigin
     @PostMapping(BUDGET_PATH)
     public @ResponseBody
-    BaseResponse<Budget> createBudget(@RequestBody Budget budget) {
+    BaseResponse<Budget> createBudget(@RequestBody Collection<TempPlannedCategory> categories) {
 
-        return new BaseResponse<>(budgetService.createBudget(budget));
+        return new BaseResponse<>(budgetService.createBudget(categories));
     }
 
     @CrossOrigin
@@ -42,10 +43,24 @@ public class BudgetController {
     @CrossOrigin
     @DeleteMapping(BUDGET_PATH + "/{idBudget}")
     public @ResponseBody
-    BaseResponse createCategory(@PathVariable(name = "idBudget") String idBudget) {
+    BaseResponse deleteCategory(@PathVariable(name = "idBudget") String idBudget) {
 
         return new BaseResponse<>(budgetService.deleteBudget(idBudget));
     }
 
+    @CrossOrigin
+    @GetMapping(BUDGET_PATH + "/{idBudget}")
+    public @ResponseBody
+    BaseResponse<Budget> provideBudget(@PathVariable(name = "idBudget") String idBudget) {
 
+        return new BaseResponse<>(budgetService.provideBudget(idBudget));
+    }
+
+    @CrossOrigin
+    @PostMapping(BUDGET_PATH + "/{idBudget}")
+    public @ResponseBody
+    BaseResponse<Budget> updateBudget(@RequestBody Budget budget) {
+
+        return new BaseResponse<>(budgetService.updateBudget(budget));
+    }
 }

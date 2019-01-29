@@ -1,6 +1,8 @@
 package ftc.shift.scheduler.models;
 
-public class PlannedCategory {
+import java.io.Serializable;
+
+public class PlannedCategory implements Serializable {
 
     private Category category;
 

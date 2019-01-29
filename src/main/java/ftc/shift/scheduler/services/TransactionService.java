@@ -10,7 +10,7 @@ public interface TransactionService {
 
     Transaction updateTransaction(Transaction transaction);
 
-    void deleteTransaction(String idTransaction);
+    boolean deleteTransaction(String idTransaction);
 
     Transaction createTransaction(Transaction transaction);
 

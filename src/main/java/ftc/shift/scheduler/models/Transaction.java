@@ -8,18 +8,29 @@ public class Transaction implements Serializable {
 
     private String idCategory;
 
+    private String idBudget;
+
     private String text;
 
     private int money;
 
-    public Transaction(String idTransaction, String idCategory, String text, int money) {
+    public Transaction(String idTransaction, String idCategory, String idBudget, String text, int money) {
         this.idTransaction = idTransaction;
         this.idCategory = idCategory;
+        this.idBudget = idBudget;
         this.text = text;
         this.money = money;
     }
 
     public Transaction() {
+    }
+
+    public String getIdBudget() {
+        return idBudget;
+    }
+
+    public void setIdBudget(String idBudget) {
+        this.idBudget = idBudget;
     }
 
     public String getIdTransaction() {

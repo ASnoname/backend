@@ -3,18 +3,20 @@ package ftc.shift.scheduler.models;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 public class Budget implements Serializable {
 
     private String idBudget;
 
-    private Collection<PlannedCategory> categories;
+    private List<PlannedCategory> categories;
 
-    private Collection<Transaction> transactions;
+    private List<Transaction> transactions;
 
     private Date date;
 
-    public Budget(String idBudget, Collection<PlannedCategory> categories, Collection<Transaction> transactions, Date date) {
+
+    public Budget(String idBudget, List<PlannedCategory> categories, List<Transaction> transactions, Date date) {
         this.idBudget = idBudget;
         this.categories = categories;
         this.transactions = transactions;
@@ -32,19 +34,19 @@ public class Budget implements Serializable {
         this.idBudget = idBudget;
     }
 
-    public Collection<PlannedCategory> getCategories() {
+    public List<PlannedCategory> getCategories() {
         return categories;
     }
 
-    public void setCategories(Collection<PlannedCategory> categories) {
+    public void setCategories(List<PlannedCategory> categories) {
         this.categories = categories;
     }
 
-    public Collection<Transaction> getTransactions() {
+    public List<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(Collection<Transaction> transactions) {
+    public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
 

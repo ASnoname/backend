@@ -3,9 +3,7 @@ package ftc.shift.scheduler.repositories;
 import ftc.shift.scheduler.models.Budget;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class BudgetRepositoryImpl implements BudgetRepository{
@@ -41,6 +39,10 @@ public class BudgetRepositoryImpl implements BudgetRepository{
     public Budget createBudget(Budget budget) {
 
         budget.setIdBudget(String.valueOf(budget.hashCode()));
+
+        budget.setDate(new Date());
+
+        budget.setTransactions(new ArrayList<>(0));
 
         budgets.put(budget.getIdBudget(), budget);
 

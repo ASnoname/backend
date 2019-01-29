@@ -30,9 +30,11 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public void deleteTransaction(String idTransaction) {
+    public boolean deleteTransaction(String idTransaction) {
 
         transactionRepository.deleteTransaction(idTransaction);
+
+        return true;
     }
 
     @Override

@@ -46,4 +46,12 @@ public class CategoryController {
 
         return new BaseResponse<>(categoryService.deleteCategory(idCategory));
     }
+
+    @CrossOrigin
+    @PostMapping(CATEGORY_PATH + "/{idCategory}")
+    public @ResponseBody
+    BaseResponse<Category> updateCategory(@RequestBody Category category) {
+
+        return new BaseResponse<>(categoryService.updateCategory(category));
+    }
 }

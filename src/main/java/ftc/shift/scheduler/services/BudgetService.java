@@ -1,6 +1,7 @@
 package ftc.shift.scheduler.services;
 
 import ftc.shift.scheduler.models.Budget;
+import ftc.shift.scheduler.models.TempPlannedCategory;
 
 import java.util.Collection;
 
@@ -12,7 +13,7 @@ public interface BudgetService {
 
     boolean deleteBudget(String idBudget);
 
-    Budget createBudget(Budget budget);
+    Budget createBudget(Collection<TempPlannedCategory> categories);
 
     Collection<Budget> provideBudgetes();
 }
