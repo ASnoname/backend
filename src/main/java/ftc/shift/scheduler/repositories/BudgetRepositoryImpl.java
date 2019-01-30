@@ -10,6 +10,25 @@ public class BudgetRepositoryImpl implements BudgetRepository{
 
     private Map<String, Budget> budgets;
 
+    private Map<Integer, String> months;
+
+    {
+        months = new HashMap<>();
+
+        months.put(Calendar.JANUARY, "Январь");
+        months.put(Calendar.FEBRUARY, "Февраль");
+        months.put(Calendar.MARCH, "Март");
+        months.put(Calendar.APRIL, "Апрель");
+        months.put(Calendar.MAY, "Май");
+        months.put(Calendar.JUNE, "Июнь");
+        months.put(Calendar.JULY, "Июль");
+        months.put(Calendar.AUGUST, "Август");
+        months.put(Calendar.SEPTEMBER, "Сентябрь");
+        months.put(Calendar.OCTOBER, "Октябрь");
+        months.put(Calendar.NOVEMBER, "Ноябрь");
+        months.put(Calendar.DECEMBER, "Декабрь");
+    }
+
     public BudgetRepositoryImpl() {
 
         budgets = new HashMap<>();
@@ -40,7 +59,9 @@ public class BudgetRepositoryImpl implements BudgetRepository{
 
         budget.setIdBudget(String.valueOf(budget.hashCode()));
 
-        budget.setDate(new Date().toString());
+        Calendar calendar = Calendar.getInstance();
+
+        budget.setDate(months.get(calendar.get(Calendar.MONTH)));
 
         budget.setTransactions(new ArrayList<>(0));
 
