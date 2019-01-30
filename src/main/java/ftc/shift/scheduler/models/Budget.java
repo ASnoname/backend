@@ -11,10 +11,10 @@ public class Budget implements Serializable {
 
     private List<Transaction> transactions;
 
-    private String date;
+    private Date date;
 
 
-    public Budget(String idBudget, List<PlannedCategory> categories, List<Transaction> transactions, String date) {
+    public Budget(String idBudget, List<PlannedCategory> categories, List<Transaction> transactions, Date date) {
         this.idBudget = idBudget;
         this.categories = categories;
         this.transactions = transactions;
@@ -48,11 +48,11 @@ public class Budget implements Serializable {
         this.transactions = transactions;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }
