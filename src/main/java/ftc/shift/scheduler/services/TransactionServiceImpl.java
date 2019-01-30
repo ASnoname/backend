@@ -38,6 +38,22 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public boolean deleteTransaction(String idTransaction) {
 
+        Transaction transaction = transactionRepository.fetchTransaction(idTransaction);
+
+        Budget budget = budgetRepository.fetchBudget(transaction.getIdBudget());
+
+        budget.getTransactions().remove(transaction);
+
+        for (PlannedCategory p : budget.getCategories()) {
+
+            if (p.getCategory().getIdCategory().equals(transaction.getIdCategory())){
+
+                p.setSpending(p.getSpending() - transaction.getSpending());
+
+                break;
+            }
+        }
+
         transactionRepository.deleteTransaction(idTransaction);
 
         return true;

@@ -42,7 +42,7 @@ public class TransactionRepositoryImpl implements TransactionRepository {
 
         transaction.setIdTransaction(String.valueOf(transaction.hashCode()));
 
-        transactions.put(transaction.getIdCategory(), transaction);
+        transactions.put(transaction.getIdTransaction(), transaction);
 
         return transaction;
     }

@@ -5,8 +5,6 @@ import ftc.shift.scheduler.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-
 @RestController
 public class TransactionController {
 
@@ -29,22 +27,6 @@ public class TransactionController {
     BaseResponse<Transaction> createTransaction(@RequestBody Transaction transaction) {
 
         return new BaseResponse<>(transactionService.createTransaction(transaction));
-    }
-
-    @CrossOrigin
-    @GetMapping(TRANSACTION_PATH + "/{idTransaction}")
-    public @ResponseBody
-    BaseResponse<Transaction> provideTransaction(@PathVariable(name = "idTransaction") String idTransaction) {
-
-        return new BaseResponse<>(transactionService.provideTransaction(idTransaction));
-    }
-
-    @CrossOrigin
-    @GetMapping(TRANSACTION_PATH)
-    public @ResponseBody
-    BaseResponse<Collection<Transaction>> provideTransactions() {
-
-        return new BaseResponse<>(transactionService.provideTransactions());
     }
 
     @CrossOrigin
