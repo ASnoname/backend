@@ -1,6 +1,6 @@
 package ftc.shift.scheduler.controller;
 
-public class Resources {
+class Resources {
 
     static final String CATEGORY_PREFIX = "/api/category";
     static final String BUDGET_PREFIX = "/api/budget";

@@ -12,14 +12,14 @@ public class Transaction implements Serializable {
 
     private String text;
 
-    private int money;
+    private int spending;
 
-    public Transaction(String idTransaction, String idCategory, String idBudget, String text, int money) {
+    public Transaction(String idTransaction, String idCategory, String idBudget, String text, int spending) {
         this.idTransaction = idTransaction;
         this.idCategory = idCategory;
         this.idBudget = idBudget;
         this.text = text;
-        this.money = money;
+        this.spending = spending;
     }
 
     public Transaction() {
@@ -57,11 +57,11 @@ public class Transaction implements Serializable {
         this.text = text;
     }
 
-    public int getMoney() {
-        return money;
+    public int getSpending() {
+        return spending;
     }
 
-    public void setMoney(int money) {
-        this.money = money;
+    public void setSpending(int spending) {
+        this.spending = spending;
     }
 }

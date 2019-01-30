@@ -1,8 +1,6 @@
 package ftc.shift.scheduler.controller;
 
-import ftc.shift.scheduler.models.Budget;
 import ftc.shift.scheduler.models.Transaction;
-import ftc.shift.scheduler.services.BudgetService;
 import ftc.shift.scheduler.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,18 +12,11 @@ public class TransactionController {
 
     private static final String TRANSACTION_PATH = Resources.TRANSACTION_PREFIX;
 
-    private final BudgetService budgetService;
-
     private final TransactionService transactionService;
 
     @Autowired
-    public TransactionController(BudgetService budgetService, TransactionService transactionService) {
-        this.budgetService = budgetService;
+    public TransactionController(TransactionService transactionService) {
         this.transactionService = transactionService;
-    }
-
-    public BudgetService getBudgetService() {
-        return budgetService;
     }
 
     public TransactionService getTransactionService() {
@@ -37,11 +28,7 @@ public class TransactionController {
     public @ResponseBody
     BaseResponse<Transaction> createTransaction(@RequestBody Transaction transaction) {
 
-        Transaction result = transactionService.createTransaction(transaction);
-
-        budgetService.provideBudget(transaction.getIdBudget()).getTransactions().add(result);
-
-        return new BaseResponse<>(result);
+        return new BaseResponse<>(transactionService.createTransaction(transaction));
     }
 
     @CrossOrigin

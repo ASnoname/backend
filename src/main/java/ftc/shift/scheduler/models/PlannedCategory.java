@@ -6,17 +6,17 @@ public class PlannedCategory implements Serializable {
 
     private Category category;
 
-    private int money;
+    private Integer money;
 
-    private int spending;
+    private Integer spending;
 
-    public PlannedCategory(Category category, int money, int spending) {
+    public PlannedCategory() {
+    }
+
+    public PlannedCategory(Category category, Integer money, Integer spending) {
         this.category = category;
         this.money = money;
         this.spending = spending;
-    }
-
-    public PlannedCategory() {
     }
 
     public Category getCategory() {
@@ -27,19 +27,19 @@ public class PlannedCategory implements Serializable {
         this.category = category;
     }
 
-    public int getMoney() {
+    public Integer getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(Integer money) {
         this.money = money;
     }
 
-    public int getSpending() {
+    public Integer getSpending() {
         return spending;
     }
 
-    public void setSpending(int spending) {
+    public void setSpending(Integer spending) {
         this.spending = spending;
     }
 }
