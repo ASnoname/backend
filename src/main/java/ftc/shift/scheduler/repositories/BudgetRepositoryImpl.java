@@ -60,7 +60,7 @@ public class BudgetRepositoryImpl implements BudgetRepository{
 
         budget.setIdBudget(String.valueOf(budget.hashCode()));
 
-        budget.setDate(new Date(months.get(budgets.size() % 12), budgets.size() % 12));
+        budget.setDate(new Date(months.get(budgets.size() % 12), budgets.size()));
 
         budget.setTransactions(new ArrayList<>(0));
 

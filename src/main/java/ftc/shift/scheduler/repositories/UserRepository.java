@@ -10,7 +10,7 @@ public class UserRepository {
 
     public UserRepository() {
 
-        user = new User("Силуанов Антон");
+        user = new User("Антон Силуанов");
     }
 
     public User fetchUser() {
