@@ -19,10 +19,6 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    public CategoryService getCategoryService() {
-        return categoryService;
-    }
-
     @CrossOrigin
     @GetMapping(CATEGORY_PATH)
     public @ResponseBody
@@ -50,8 +46,15 @@ public class CategoryController {
     @CrossOrigin
     @PostMapping(CATEGORY_PATH + "/{idCategory}")
     public @ResponseBody
-    BaseResponse<Category> updateCategory(@RequestBody Category category) {
+    BaseResponse<Category> updateCategory(@RequestBody Category category, @PathVariable String idCategory) {
 
-        return new BaseResponse<>(categoryService.updateCategory(category));
+        if (idCategory.equals(category.getIdCategory())){
+
+            return new BaseResponse<>(categoryService.updateCategory(category));
+        }
+        else {
+
+            return new BaseResponse<>(false);
+        }
     }
 }

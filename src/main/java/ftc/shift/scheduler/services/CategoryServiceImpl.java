@@ -32,9 +32,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public boolean deleteCategory(String idCategory) {
 
-        categoryRepository.deleteCategory(idCategory);
-
-        return true;
+        return categoryRepository.deleteCategory(idCategory);
     }
 
     @Override
@@ -47,9 +45,5 @@ public class CategoryServiceImpl implements CategoryService {
     public Collection<Category> provideCategories() {
 
         return categoryRepository.getAllCategories();
-    }
-
-    public CategoryRepository getCategoryRepository() {
-        return categoryRepository;
     }
 }

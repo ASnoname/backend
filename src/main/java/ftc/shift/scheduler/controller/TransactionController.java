@@ -17,10 +17,6 @@ public class TransactionController {
         this.transactionService = transactionService;
     }
 
-    public TransactionService getTransactionService() {
-        return transactionService;
-    }
-
     @CrossOrigin
     @PostMapping(TRANSACTION_PATH)
     public @ResponseBody

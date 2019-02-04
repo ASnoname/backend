@@ -11,9 +11,9 @@ public class BudgetRepositoryImpl implements BudgetRepository{
 
     private Map<String, Budget> budgets;
 
-    private Map<Integer, String> months;
+    private static final Map<Integer, String> months;
 
-    {
+    static {
         months = new HashMap<>();
 
         months.put(Calendar.JANUARY, "Январь");
@@ -50,9 +50,11 @@ public class BudgetRepositoryImpl implements BudgetRepository{
     }
 
     @Override
-    public void deleteBudget(String idBudget) {
+    public boolean deleteBudget(String idBudget) {
 
         budgets.remove(idBudget);
+
+        return !budgets.containsKey(idBudget);
     }
 
     @Override
@@ -81,7 +83,7 @@ public class BudgetRepositoryImpl implements BudgetRepository{
     }
 
     @Override
-    public Collection<Budget> getAllBudgetes() {
+    public Collection<Budget> getAllBudgets() {
 
         return budgets.values();
     }

@@ -7,10 +7,7 @@ import ftc.shift.scheduler.repositories.BudgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,10 +16,6 @@ public class BudgetServiceImpl implements BudgetService {
     private final BudgetRepository budgetRepository;
 
     private final CategoryService categoryService;
-
-    public CategoryService getCategoryService() {
-        return categoryService;
-    }
 
     @Autowired
     public BudgetServiceImpl(BudgetRepository budgetRepository, CategoryService categoryService) {
@@ -45,9 +38,7 @@ public class BudgetServiceImpl implements BudgetService {
     @Override
     public boolean deleteBudget(String idBudget) {
 
-        budgetRepository.deleteBudget(idBudget);
-
-        return true;
+        return budgetRepository.deleteBudget(idBudget);
     }
 
     @Override
@@ -75,10 +66,6 @@ public class BudgetServiceImpl implements BudgetService {
     @Override
     public Collection<Budget> provideBudgetes() {
 
-        return budgetRepository.getAllBudgetes();
-    }
-
-    public BudgetRepository getBudgetRepository() {
-        return budgetRepository;
+        return budgetRepository.getAllBudgets();
     }
 }

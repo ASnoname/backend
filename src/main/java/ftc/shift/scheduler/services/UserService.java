@@ -15,10 +15,6 @@ public class UserService  {
         this.userRepository = userRepository;
     }
 
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
-
     public User provideUser() {
 
         return userRepository.fetchUser();

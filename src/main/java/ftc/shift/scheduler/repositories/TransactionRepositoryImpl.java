@@ -32,9 +32,11 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     }
 
     @Override
-    public void deleteTransaction(String idTransaction) {
+    public boolean deleteTransaction(String idTransaction) {
 
         transactions.remove(idTransaction);
+
+        return !transactions.containsKey(idTransaction);
     }
 
     @Override

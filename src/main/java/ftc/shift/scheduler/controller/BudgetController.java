@@ -20,10 +20,6 @@ public class BudgetController {
         this.budgetService = budgetService;
     }
 
-    public BudgetService getBudgetService() {
-        return budgetService;
-    }
-
     @CrossOrigin
     @PostMapping(BUDGET_PATH)
     public @ResponseBody
@@ -59,8 +55,15 @@ public class BudgetController {
     @CrossOrigin
     @PostMapping(BUDGET_PATH + "/{idBudget}")
     public @ResponseBody
-    BaseResponse<Budget> updateBudget(@RequestBody Budget budget) {
+    BaseResponse<Budget> updateBudget(@RequestBody Budget budget, @PathVariable String idBudget) {
 
-        return new BaseResponse<>(budgetService.updateBudget(budget));
+        if (idBudget.equals(budget.getIdBudget())){
+
+            return new BaseResponse<>(budgetService.updateBudget(budget));
+        }
+        else {
+
+            return new BaseResponse<>(false);
+        }
     }
 }

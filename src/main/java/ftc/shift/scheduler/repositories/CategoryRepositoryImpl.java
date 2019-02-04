@@ -32,9 +32,11 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     }
 
     @Override
-    public void deleteCategory(String idCategory) {
+    public boolean deleteCategory(String idCategory) {
 
         categories.remove(idCategory);
+
+        return !categories.containsKey(idCategory);
     }
 
     @Override

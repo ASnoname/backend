@@ -54,9 +54,7 @@ public class TransactionServiceImpl implements TransactionService {
             }
         }
 
-        transactionRepository.deleteTransaction(idTransaction);
-
-        return true;
+        return transactionRepository.deleteTransaction(idTransaction);
     }
 
     @Override
@@ -85,13 +83,5 @@ public class TransactionServiceImpl implements TransactionService {
     public Collection<Transaction> provideTransactions() {
 
         return transactionRepository.getAllTransactions();
-    }
-
-    public TransactionRepository getTransactionRepository() {
-        return transactionRepository;
-    }
-
-    public BudgetRepository getBudgetRepository() {
-        return budgetRepository;
     }
 }

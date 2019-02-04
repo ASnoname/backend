@@ -10,9 +10,9 @@ public interface BudgetRepository {
 
     Budget updateBudget(Budget budget);
 
-    void deleteBudget(String idBudget);
+    boolean deleteBudget(String idBudget);
 
     Budget createBudget(Budget budget);
 
-    Collection<Budget> getAllBudgetes();
+    Collection<Budget> getAllBudgets();
 }

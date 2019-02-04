@@ -1,9 +1,13 @@
 package ftc.shift.scheduler.controller;
 
+import lombok.Getter;
+
 public class BaseResponse<T> {
 
+    @Getter
     private String status;
 
+    @Getter
     private T data;
 
     BaseResponse(T result){
@@ -26,13 +30,5 @@ public class BaseResponse<T> {
 
             this.status = Resources.UNSUCCESS_STATUS;
         }
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
     }
 }

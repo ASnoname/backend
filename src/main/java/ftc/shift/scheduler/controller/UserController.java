@@ -20,10 +20,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    public UserService getUserService() {
-        return userService;
-    }
-
     @CrossOrigin
     @GetMapping(USER_PATH)
     public @ResponseBody

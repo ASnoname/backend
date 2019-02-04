@@ -15,7 +15,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'ftc.shift.scheduler'
-version = '0.0.1'
+version = '1.0'
 sourceCompatibility = 9
 
 repositories {
@@ -25,5 +25,12 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.5.RELEASE'
-
+    compileOnly 'org.projectlombok:lombok:1.18.2'
 }
+
+//jar {
+//    manifest {
+//        attributes 'Main-Class': 'ftc.shift.scheduler.SpringbootSampleApplication'
+//    }
+//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//}
